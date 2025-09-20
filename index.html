@@ -12,7 +12,11 @@
   body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
   .wrap{max-width:880px;margin:0 auto;padding:28px 16px}
   header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-  .logo{width:36px;height:36px;border-radius:10px;border:2px solid var(--gold);display:grid;place-items:center;font-weight:900;color:var(--gold)}
+  /* New image-based logo */
+  .logo-img{
+    width:36px;height:36px;display:block;border-radius:10px;
+    border:2px solid var(--gold);object-fit:contain;background:#0f0f0f;padding:4px;
+  }
   h1{font-size:28px;margin:0}
   .card{background:linear-gradient(180deg,#151515,#0f0f0f);border:1px solid var(--border);border-radius:16px;padding:18px;margin:14px 0}
   h2{margin:0 0 8px 0;font-size:20px}
@@ -24,48 +28,76 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="logo">FN</div>
+      <!-- Swap the old “FN” box for your real logo image -->
+      <img class="logo-img" src="./logo.png" alt="Fancy Notepad logo">
       <div>
         <h1>Fancy Notepad — Privacy Policy</h1>
-        <div class="meta">Last updated: 2025-09-11</div>
+        <div class="meta">Last updated: 2025-09-20</div>
       </div>
     </header>
 
     <div class="card">
-      <p>Fancy Notepad is developed by <strong>Sir-Dev-A-Lot</strong>. We respect your privacy and design this app to keep your data on your device.</p>
+      <p>Fancy Notepad is developed by <strong>Sir-Dev-A-Lot</strong>. We built this app so your notes stay <strong>on your device</strong>. We do not operate servers that store your notes.</p>
     </div>
 
     <div class="card">
       <h2>Data We Collect</h2>
-      <p><strong>We do not collect personal data on our servers.</strong></p>
+      <p><strong>We do not collect, share, or sell personal data on our servers.</strong> The app contains no analytics SDKs and no advertising SDKs.</p>
+      <p><strong>Stored locally on your device only:</strong></p>
       <ul>
-        <li><strong>Notes & content:</strong> stored locally on your device (IndexedDB or native storage when installed as an APK).</li>
-        <li><strong>Preferences:</strong> theme, font, sort order, and optional app PIN are stored locally on your device.</li>
+        <li><strong>Notes &amp; content</strong> you create or import.</li>
+        <li><strong>Preferences</strong> such as theme, fonts, and sort order.</li>
+        <li><strong>Security PIN</strong> (if you enable it).</li>
+        <li><strong>Pro status</strong> (a local flag indicating you purchased the one-time Pro upgrade).</li>
       </ul>
     </div>
 
     <div class="card">
-      <h2>Third-Party Services</h2>
-      <p>The current version includes <strong>no analytics SDKs and no advertising SDKs</strong>.</p>
-      <p>If we later integrate billing or analytics, we’ll update this policy and our Data Safety form accordingly.</p>
+      <h2>Purchases (Google Play Billing)</h2>
+      <p>Fancy Notepad offers a <strong>one-time $2.99</strong> “Go Pro” upgrade processed by <strong>Google Play Billing</strong>.</p>
+      <ul>
+        <li>Payment details are handled by Google; <strong>we do not receive your card or bank information</strong>.</li>
+        <li>We store only a local Pro flag on your device to unlock features.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>How Import / Share / Export Work</h2>
+      <ul>
+        <li><strong>Import</strong>: If you choose to import, the app reads files locally on your device.</li>
+        <li><strong>Share / Export</strong>: If you choose to share or export, the app passes your selected content to Android’s system share dialog or writes an export file—<strong>only when you ask it to</strong>.</li>
+      </ul>
     </div>
 
     <div class="card">
       <h2>Permissions</h2>
       <ul>
-        <li><strong>Storage (optional):</strong> used only when you import/export notes you choose to save as files.</li>
-        <li><strong>Network:</strong> used to load web assets initially and for optional share/export features. The app works offline after installation.</li>
+        <li><strong>Storage / Files &amp; media (optional)</strong> — used only when you import or export notes you select.</li>
+        <li><strong>Network</strong> — used for Google Play Billing and opening policy/support links. The app works offline after installation except for purchases or links you open.</li>
       </ul>
     </div>
 
     <div class="card">
+      <h2>Data Retention &amp; Deletion</h2>
+      <ul>
+        <li>Your notes and settings remain on your device until you delete them or uninstall the app.</li>
+        <li>Exported files remain wherever you saved them until you delete them.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Security</h2>
+      <p>Your notes are stored locally using platform storage. If you enable the app PIN, it helps protect access to Fancy Notepad on your device. No method is 100% secure; keep your device updated and protected.</p>
+    </div>
+
+    <div class="card">
       <h2>Children’s Privacy</h2>
-      <p>Fancy Notepad is intended for users aged 13 and older.</p>
+      <p>Fancy Notepad is intended for users aged 13 and older. If you believe a child has provided personal data to us, please contact us for assistance.</p>
     </div>
 
     <div class="card">
       <h2>Changes</h2>
-      <p>We may update this policy from time to time. Updates will be posted here with a new “Last updated” date.</p>
+      <p>We may update this policy as the app evolves. Updates will be posted here with a new “Last updated” date.</p>
     </div>
 
     <div class="card">
@@ -73,7 +105,7 @@
       <p>Email: <a href="mailto:sirdevalot.apps@gmail.com">sirdevalot.apps@gmail.com</a></p>
     </div>
 
-    <div class="highlight">This site is provided for convenience. Your notes never leave your device unless you explicitly export/share them.</div>
+    <div class="highlight">This site is provided for convenience. Your notes never leave your device unless you explicitly share or export them.</div>
   </div>
 </body>
 </html>
